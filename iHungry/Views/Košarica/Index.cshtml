@@ -1,0 +1,56 @@
+﻿@model IEnumerable<iHungry.Models.Košarica>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Košarica</h2>
+
+<p>
+    <a asp-action="Create">Dodaj jelo</a> |
+    <a asp-action="Naruči">Naruči sada</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Količina)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jelo)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.Jelo.Cijena)</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Količina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jelo.Naziv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jelo.Cijena) kn
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@{
+    int br = 0;
+    double ukupno = 0;
+    foreach (var item in Model) { ukupno += item.Količina * item.Jelo.Cijena;br++; }
+}
+<p>Ukupno: @ukupno kn</p>
+<p>Broj jela u košarici: @br</p>
+<br />
+
