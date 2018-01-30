@@ -7,7 +7,7 @@
 <h2>Meni</h2>
 <form>
 <p>Pronađi jelo:</p><input name="naziv" type="search"/>
-<p><input type="submit" value="Search" /></p>
+<p><input type="submit" value="Traži" /></p>
 </form>
 <p>
     <a asp-action="Create">Create New</a>
@@ -36,8 +36,8 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-area="" asp-controller="Košarica" asp-action="Dodajukošaricu"  asp-route-id="@item.Id">Dodaj u košaricu</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                <a asp-area="" asp-controller="Košarica" asp-action="Dodajukošaricu" asp-route-id="@item.Id">Dodaj u košaricu</a>
             </td>
         </tr>
 }

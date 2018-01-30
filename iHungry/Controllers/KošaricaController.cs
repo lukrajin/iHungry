@@ -93,6 +93,10 @@ namespace iHungry.Controllers
         }
         public IActionResult Naruči()
         {
+            if (!_context.Košarica.Any())
+            {
+                return View("~/Views/Košarica/Greška.cshtml");
+            }
             _context.Database.ExecuteSqlCommand("TRUNCATE TABLE Košarica");
 
             return View("~/Views/Košarica/Narudžba.cshtml");
