@@ -12,3 +12,4 @@
 + Mogućnost naknadnog dodavanja jela
 + Mogućnost uređivanja popisa jela
 + Naručuje se klikom na "Naruči sada", ako je košarica prazna javlja se poruka o grešci
+a ako nije prikazuje se forma za unos informacija za dostavu, potrebno je unijeti sve tražene podatke
