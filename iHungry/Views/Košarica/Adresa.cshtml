@@ -1,0 +1,64 @@
+﻿@model IEnumerable<iHungry.Models.Košarica>
+
+@{
+    ViewData["Title"] = "Adresa";
+}
+
+<h2>Vaše informacije</h2>
+<br />
+<div>
+    @using (Html.BeginForm("Spremi_podatke","Košarica",FormMethod.Post))
+    {
+    <table>
+
+    <tr><td>@Html.Label("Ime i prezime: ")</td>
+    <td>@Html.TextBox("ime", null, new { @class = "input-xlarge", type = "text", required = "required" })</td></tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr><td>@Html.Label("Adresa: ")</td>
+    <td>@Html.TextBox("adresa", null, new { @class = "input-xlarge", type = "text", required = "required" })</td></tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr><td>@Html.Label("Broj telefona: ")</td><td>
+    @Html.TextBox("broj", null, new { @class = "input-xlarge", type = "text", required = "required" })</td></tr>
+    </table><br />
+    <input type="submit" id="btnSubmit" value="Naruči" />
+    
+    }
+</div>
+<br />
+<h3>Vaša naružba: </h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Količina)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Jelo)
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.Jelo.Cijena)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Količina) X
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Jelo.Naziv)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Jelo.Cijena) kn
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @{
+            int br = 0;
+            double ukupno = 0;
+            foreach (var item in Model) { ukupno += item.Količina * item.Jelo.Cijena; br++; }
+        }
+            <p>Ukupno: @ukupno kn</p>
+

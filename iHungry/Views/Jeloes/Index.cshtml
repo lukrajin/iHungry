@@ -4,13 +4,13 @@
     ViewData["Title"] = "Index";
 }
 <img src="~/beef.jpg" height="200" width="350" /><img src="~/ham.jpg" height="200" width="350" /><img src="~/pizza.jpg" height="200" width="350" />
-<h2>Meni</h2>
+<h2>Meni za @DateTime.Now.ToShortDateString()</h2>
 <form>
 <p>Pronađi jelo:</p><input name="naziv" type="search"/>
 <p><input type="submit" value="Traži" /></p>
 </form>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Dodaj</a>
 </p>
 <table class="table">
     <thead>
@@ -34,9 +34,9 @@
                 @Html.DisplayFor(modelItem => item.Cijena) kn
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Izbriši</a> |
                 <a asp-area="" asp-controller="Košarica" asp-action="Dodajukošaricu" asp-route-id="@item.Id">Dodaj u košaricu</a>
             </td>
         </tr>

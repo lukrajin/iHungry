@@ -91,14 +91,22 @@ namespace iHungry.Controllers
 
             return View("~/Views/Košarica/Create.cshtml");
         }
-        public IActionResult Naruči()
+        public async Task<IActionResult> Adresa()
         {
             if (!_context.Košarica.Any())
             {
                 return View("~/Views/Košarica/Greška.cshtml");
             }
+            var iHungryContext = _context.Košarica.Include(k => k.Jelo);
+            return View(await iHungryContext.ToListAsync());
+        }
+        public IActionResult Spremi_podatke(string ime,string adresa,string broj)
+        {
+            ViewBag.Ime = ime;
+            ViewBag.Adresa = adresa;
+            ViewBag.Broj = broj;
+ 
             _context.Database.ExecuteSqlCommand("TRUNCATE TABLE Košarica");
-
             return View("~/Views/Košarica/Narudžba.cshtml");
         }
 
