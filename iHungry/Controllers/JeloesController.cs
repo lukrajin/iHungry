@@ -19,8 +19,24 @@ namespace iHungry.Controllers
         }
 
         // GET: Jeloes
-        public async Task<IActionResult> Index(string naziv)
+        public async Task<IActionResult> Index(string naziv,string kor,string pass)
         {
+            ViewBag.Kriviunos = false;
+            if (kor=="restoran" && pass=="1234")
+            {
+                ViewBag.Kriviunos = false;
+                ViewBag.Admin = true;
+            }
+            else if(kor!=null&pass!=null)
+            {
+                ViewBag.Kriviunos = true;
+                ViewBag.Admin = false;
+            }
+            else
+            {
+                ViewBag.Admin = false;
+              
+            }
             var jela = from j in _context.Jelo
                        select j;
             if(!String.IsNullOrEmpty(naziv))
@@ -29,6 +45,7 @@ namespace iHungry.Controllers
             }
             return View(jela.ToList());
         }
+
 
         // GET: Jeloes/Details/5
         public async Task<IActionResult> Details(int? id)
