@@ -1,4 +1,4 @@
- # iHungry
+# iHungry
 ## .NET Core (MVC) aplikacija za online naručivanje hrane.
 ### Početna
 + Naslovna stranica aplikacije
@@ -6,7 +6,8 @@
 + Popis jela koja se mogu naručiti
 + Sadrži tražilicu po nazivu jela
 + Mogućnost dodavanja u košaricu direktno iz menija
-+ Mogućnost dodavanja jela u meni, uređivanje menija, pregled detalja
++ Na dnu se nalazi forma za prijavu za restorane, nakon uspješne prijave, 
+omogućuje se dodavanja jela u meni, uređivanje menija, pregled detalja
 ### Košarica
 + Popis jela koja su spremna za naručivanje, zajedno s traženom količinom
 + Mogućnost naknadnog dodavanja jela
